@@ -12,3 +12,27 @@ export function getAppointmentsForDay(state, currentDay) {
   }
   return AppointmentsForTheDay;
 }
+
+
+export function getInterview(state, interview) {
+  if (!interview) {
+    return null;
+  }
+  const appointmentInterview = {
+    student: interview.student,
+    interviewer: state.interviewers[interview.interviewer]
+  };
+
+  return appointmentInterview;
+
+  //   for (let appointment in state.appointments) {
+  //     if ([appointment].interview.interviewer) {
+
+  //       appointmentInterviewers.student = [appointment].interview.student;
+  //       let interviewerId = appointment.interview.interviewer;
+  //       appointmentInterviewers.interviewer = state.interviewers.interviewerId;
+  //     }
+  //   }
+  //   return appointmentInterview;
+
+}
