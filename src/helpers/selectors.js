@@ -44,7 +44,7 @@ export function getInterviewersForDay(state, day) {
   const selectedDay = state.days.find(dayItem => dayItem.name === day);
 
   if (!selectedDay) { return [] };
-
-  return selectedDay.interviewers.map(id => state.interviwers[id])
+  console.log("selectedda", selectedDay);
+  return selectedDay.interviewers.map(id => state.interviewers[id])
 
 }
