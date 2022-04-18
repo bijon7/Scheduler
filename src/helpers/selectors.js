@@ -13,6 +13,13 @@ export function getAppointmentsForDay(state, currentDay) {
   return AppointmentsForTheDay;
 }
 
+export function computeSpotsRemaining(state, currentDay) {
+  const appointmentsForDay = getAppointmentsForDay(state, currentDay);
+  const spotsRemaining = appointmentsForDay.filter(appt => appt.interview === null).length
+  return spotsRemaining
+
+}
+
 
 export function getInterview(state, interview) {
   if (!interview) {
