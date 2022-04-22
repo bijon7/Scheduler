@@ -4,7 +4,7 @@ import { computeSpotsRemaining } from "../helpers/selectors";
 
 
 export default function useApplicationData() {
-  //Combines states and setStates through useState function.
+  //Combined useState hook.
   const [state, setState] = useState({
     day: "Monday",
     days: [],
@@ -33,7 +33,6 @@ export default function useApplicationData() {
 
   function bookInterview(id, interview) {
 
-    console.log(id, interview);
     const appointment = {
       //copies a particular appointment object based on the provided appointment id
       //and updates the interview key of the appointment with the new interview value.
