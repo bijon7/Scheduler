@@ -68,7 +68,7 @@ import useApplicationData from "../hooks/useApplicationData";
 
 export default function Application(props) {
 
-
+  //Sets up custom hook useApplicationData
   const {
     state,
     setDay,
@@ -77,19 +77,22 @@ export default function Application(props) {
   } = useApplicationData();
 
 
-  //const dailyAppointments = [];
+
   const interviewersForDay = getInterviewersForDay(state, state.day);
 
   const dailyAppointments = getAppointmentsForDay(state, state.day)
+  //mappedAppointments represents information on every single appointment that
+  //gets passed to the index.js file.
   const mappedAppointments = dailyAppointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
     return (
       <Appointment key={appointment.id} id={appointment.id} time={appointment.time}
         interview={interview} bookInterview={bookInterview} interviewers={interviewersForDay} cancelInterview={cancelInterview} />)
   })
-  console.log("state status", state.day);
+
   return (
-    //<DayListItem name = "fred"></DayListItem>
+    //List of days will be rendered by passing props to the DayList component while
+    //the list of appointments are being exported.
 
     <main className="layout">
       <section className="sidebar">

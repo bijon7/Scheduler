@@ -1,9 +1,9 @@
 import React from "react";
-
+//useVisualMode defines back and transition modes and exports to the index.js file.
 export default function useVisualMode(initial) {
-  //const [mode, setMode] = useState(initial);
   const [history, setHistory] = React.useState([initial]);
-
+  //transition function defines options to directly go back to the previous mode as well 
+  //as going back to a mode BEFORE the previous mode based on the replace value.
   const transition = (newMode, replace = false) => {
     //setMode(newMode);
     if (replace === true) {
@@ -18,9 +18,8 @@ export default function useVisualMode(initial) {
     }
   }
 
-
+  //back function sets new state to the previous mode.
   const back = () => {
-    console.log("testing cancel", history);
 
     //setMode(newMode);
     if (history.length < 2) {
@@ -30,11 +29,9 @@ export default function useVisualMode(initial) {
     newHistory.pop();
     setHistory(newHistory)
   }
-  console.log("history", history);
   return { mode: history[history.length - 1], transition, back }
 
 
 
 
 }
-//useVisualMode("EDIT")

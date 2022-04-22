@@ -18,34 +18,39 @@ const CONFIRM = "CONFIRM";
 const EDIT = "EDIT";
 const ERROR_SAVE = "ERROR_SAVE";
 const ERROR_DELETE = "ERROR_DELETE";
-
+//index.js file provides logic for rendering of different components of the app.
 
 export default function Appointment(props) {
+  //Only show appointment information if exists.
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
   let buttonClass = "button";
-
+  //save function takes arguments to match a student with the interviewer.
   function save(name, interviewer) {
     const interview = {
       student: name,
       interviewer
     };
+    //Shows message while  in the process of saving.
     transition(SAVING);
     props.bookInterview(props.id, interview)
+      //Shows the student and interviewer names on the appointment slot after
+      //booking an appointment.
       .then(() => transition(SHOW))
       .catch(error => transition(ERROR_SAVE, true));
   }
-
+  //Deletes an existing interview.
   function deleteInterview() {
     transition(DELETE, true);
     props
       .cancelInterview(props.id)
+      //Shows an empty slot after canceling an appointment.
       .then(() => transition(EMPTY))
       .catch(error => transition(ERROR_DELETE, true));
   }
 
-
+  //rendering takes place on corresponding modes.
   return (
     <article className="appointment">
       <Header time={props.time} />
@@ -60,6 +65,7 @@ export default function Appointment(props) {
         />
 
       )}
+
       {mode === CREATE && <Form interviewers={props.interviewers} onCancel={() => back()} onSave={save} />}
       {mode === SAVING && <Status message={"Saving"} />}
       {mode === CONFIRM && (<Confirm message={`CONFIRM`} onCancel={back} onConfirm={deleteInterview} />)}

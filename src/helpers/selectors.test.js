@@ -25,7 +25,7 @@ const state = {
       time: "2pm",
       interview: { student: "Archie Cohen", interviewer: 2 }
     },
-    "4": { id: 4, time: "3pm", interview: null },
+    "4": { id: 4, time: "3pm", interview: null, interview: { student: "Kingsley", interviewer: 2 } },
     "5": {
       id: 5,
       time: "4pm",
@@ -44,7 +44,9 @@ const state = {
       name: "Tori Malcolm",
       avatar: "https://i.imgur.com/Nmx0Qxo.png"
     }
-  }
+  },
+  day: "Monday",
+  day: "tuesday"
 };
 
 test("getAppointmentsForDay returns an array", () => {
