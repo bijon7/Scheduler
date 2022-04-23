@@ -81,8 +81,8 @@ export default function Application(props) {
   const interviewersForDay = getInterviewersForDay(state, state.day);
 
   const dailyAppointments = getAppointmentsForDay(state, state.day)
-  //mappedAppointments represents information on every single appointment that
-  //gets passed to the index.js file.
+  //mappedAppointments represents information on single appointments that
+  //gets passed to the index.js file for execution.
   const mappedAppointments = dailyAppointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
     return (
@@ -91,8 +91,7 @@ export default function Application(props) {
   })
 
   return (
-    //List of days will be rendered by passing props to the DayList component while
-    //the list of appointments are being exported.
+    //List of days will be rendered by passing state props to DayList components.
 
     <main className="layout">
       <section className="sidebar">
