@@ -2,13 +2,23 @@
 
 ## Setup
 
-Install dependencies with `npm install`.
+1.Delete package-lock.json and node_modules.
+2.Install dependencies with `npm install`.
+3.Create .env file in the root folder with the content
+`SKIP_PREFLIGHT_CHECK=true` in it.
+4.Create .env.development file with the following:
+REACT_APP_WEBSOCKET_URL=ws://localhost:8001
+PORT=8000
+CHOKIDAR_USEPOLLING=false
+4.To set up scheduler-api server, fork and clone the scheduler-api from https://github.com/lighthouse-labs/scheduler-api into a new directory (NOT in the same directory as the Scheduler). The server runs at port 8001.
 
 ## Running Webpack Development Server
 
 ```sh
-npm start
+Use "npm run start" command for both Scheduler and scheduler-api server.
 ```
+
+The app will be served at <http://localhost:8000/>
 
 ## Running Jest Test Framework
 
@@ -21,17 +31,6 @@ npm test
 ```sh
 npm run storybook
 ```
-
-## Setup
-
-1. Run `bundle install` to install dependencies
-2. Create `config/database.yml` by copying `config/database.example.yml`
-3. Create `config/secrets.yml` by copying `config/secrets.example.yml`
-4. Run `bin/rake db:reset` to create, load and seed db
-5. Create .env file based on .env.example
-6. Sign up for a Stripe account
-7. Put Stripe (test) keys into appropriate .env vars
-8. Run `bin/rails s -b 0.0.0.0` to start the server
 
 ## run npm start and expect to see the page below
 
