@@ -7,7 +7,7 @@
 2.Install dependencies with `npm install`.<br/>
 
 3.Create .env file in the root folder with the content
-`SKIP_PREFLIGHT_CHECK=true` in it.
+`SKIP_PREFLIGHT_CHECK=true` in it.<br/>
 4.Create .env.development file with the following:<br/>
 REACT_APP_WEBSOCKET_URL=ws://localhost:8001<br/>
 PORT=8000<br/>
