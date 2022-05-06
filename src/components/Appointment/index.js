@@ -25,7 +25,7 @@ export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
-  let buttonClass = "button";
+
   //save function takes arguments to match a student with the interviewer.
   function save(name, interviewer) {
     const interview = {
