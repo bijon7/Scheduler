@@ -14,7 +14,7 @@ REACT_APP_WEBSOCKET_URL=ws://localhost:8001<br/>
 PORT=8000<br/>
 CHOKIDAR_USEPOLLING=false<br/>
 
-4.To set up scheduler-api server, fork and clone the scheduler-api from https://github.com/lighthouse-labs/scheduler-api into a new directory (NOT in the same directory as the Scheduler). The server runs at port 8001.
+5.To set up scheduler-api server, fork and clone the scheduler-api from https://github.com/lighthouse-labs/scheduler-api into a new directory (NOT in the same directory as the Scheduler). The server runs at port 8001.
 
 ## Running Webpack Development Server
 
